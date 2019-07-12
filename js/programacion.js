@@ -12,9 +12,10 @@ $(document).ready(function() {
 		return false;
 */
 		var datosFormulario=$(this).serialize();
-		$.get("login.php",datosFormulario,procesarDatos);
+		$.get("login.php",datosFormulario,procesarDatos).fail(ProcesarError);
 
 		return false;
+		//preventDefault();
  
 	});
 
@@ -27,5 +28,14 @@ $(document).ready(function() {
 		}
 
 	}
+
+	function ProcesarError(){
+
+		var msgError="Opps!! ha ocurrido algo inesperado. Por favor Intentalo mas tarde";
+
+		$("#contenidos_externos").html("<p>"+msgError+"</p>");
+
+	}
+
 
 });
