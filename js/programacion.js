@@ -2,7 +2,7 @@
 $(document).ready(function() {
 
 	$("#login").submit(function(){
-
+/*
 		var datosFormulario={
 							usuario:$("#usuario").val(),
 							contra:$("#contra").val()
@@ -10,6 +10,12 @@ $(document).ready(function() {
 		$.get("login.php",datosFormulario,procesarDatos);
 
 		return false;
+*/
+		var datosFormulario=$(this).serialize();
+		$.get("login.php",datosFormulario,procesarDatos);
+
+		return false;
+ 
 	});
 
 	function procesarDatos(datos_devueltos){
